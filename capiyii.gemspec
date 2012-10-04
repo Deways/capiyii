@@ -49,11 +49,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<capistrano-ext>, [">= 1.2.1"])
   s.add_development_dependency(%q<shoulda>, [">= 0"])
   s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-  s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
-  s.add_development_dependency(%q<rcov>, [">= 0"])
-  s.add_runtime_dependency(%q<capistrano>, [">= 2.5.20"])
-  s.add_runtime_dependency(%q<capistrano-ext>, [">= 1.2.1"])
-  s.add_development_dependency(%q<capistrano>, [">= 2.5.20"])
+  s.add_development_dependency(%q<jeweler>, ["~> 1.8.2"])
+  s.add_development_dependency(%q<capistrano>, [">= 2.11.0"])
   s.add_development_dependency(%q<capistrano-ext>, [">= 1.2.1"])
 end
 
