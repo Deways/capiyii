@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = 'capiyii'
-  s.version = "0.0.1"
+  s.version = "0.0.3"
   s.platform = Gem::Platform::RUBY
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Deways"]
   s.date = '2012-10-03'
-  s.default_executable = 'yiifony'
+  s.default_executable = 'capiyii'
   s.description = <<-DESC
     Yii deployment with capistrano, useful tasks, rollback deployment and more
   DESC
@@ -25,12 +25,10 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    ".document",
     "Gemfile",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
-    "VERSION",
     "bin/capiyii",
     "lib/capiyii.rb",
     "test/helper.rb",

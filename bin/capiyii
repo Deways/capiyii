@@ -38,6 +38,7 @@ end
 files = {
   "Capfile" => unindent(<<-FILE),
     load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+    load Gem.find_files('capiyii.rb').first.to_s
     load 'config/deploy' # remove this line to skip loading any of the default tasks
   FILE
 
@@ -45,7 +46,7 @@ files = {
 set :domain,      "#{application}.com"
 set :deploy_to,   "/var/www/#{domain}"
 
-set :repository,   "\#{domain}:/var/repos/\#{application}.git"
+set :repository,   "#{domain}:/var/repos/#{application}.git"
 set :scm,         :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, `subversion` or `none`
 
