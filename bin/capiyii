@@ -3,11 +3,20 @@
 require 'optparse'
 require 'fileutils'
 
+yii_app_path = 'web/protected'
+capiyii_version = '0.0.4.dev'
+
+
 OptionParser.new do |opts|
   opts.banner = "Usage: #{File.basename($0)} [path]"
 
   opts.on("-h", "--help", "Displays this help info") do
     puts opts
+    exit 0
+  end
+
+  opts.on("-v", "--version", "") do
+    puts "capiyii v#{capiyii_version}"
     exit 0
   end
 
@@ -39,22 +48,26 @@ files = {
   "Capfile" => unindent(<<-FILE),
     load 'deploy' if respond_to?(:namespace) # cap2 differentiator
     load Gem.find_files('capiyii.rb').first.to_s
-    load 'config/deploy' # remove this line to skip loading any of the default tasks
+    load '#{yii_app_path}/config/deploy'
   FILE
 
-  "config/deploy.rb" => 'set :application, "set your application name here"
-set :domain,      "#{application}.com"
-set :deploy_to,   "/var/www/#{domain}"
+  "#{yii_app_path}/config/deploy.rb" => 'set :application, "set your application name here"
+  set :domain,      "#{application}.com"
+  set :deploy_to,   "/var/www/#{domain}"
 
-set :repository,   "#{domain}:/var/repos/#{application}.git"
-set :scm,         :git
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, `subversion` or `none`
+  set :repository,   "#{domain}:/var/repos/#{application}.git"
+  set :scm,         :git
+  # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web,        domain                         # Your HTTP server, Apache/etc
-role :app,        domain                         # This may be the same as your `Web` server
-role :db,         domain, :primary => true       # This is where Rails migrations will run
+  role :web,        domain                         # Your HTTP server, Apache/etc
+  role :app,        domain                         # This may be the same as your `Web` server
+  role :db,         domain, :primary => true       # This is where Yii migrations will run
 
-set  :keep_releases,  3'}
+  set  :keep_releases,  3'
+
+  # Be more verbose by uncommenting the following line
+  # logger.level = Logger::MAX_LEVEL
+}
 
 base = ARGV.shift
 files.each do |file, content|

@@ -1,3 +1,5 @@
 README
 *.gem
+.idea
 .DS_Store
+Gemfile.lock

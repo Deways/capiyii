@@ -82,8 +82,3 @@ namespace :deploy do
   end
 
 end
-
-# After finalizing update:
-after "deploy:finalize_update" do
-  run "#{try_sudo} chmod a+rwx #{shared_path}/protected"
-end
