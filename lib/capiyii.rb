@@ -1,7 +1,7 @@
 require 'yaml'
 
 # Dirs that need to remain the same between deploys (shared dirs)
-set :shared_children,   %w(assets protected/runtime)
+set :shared_children,   %w(assets protected/runtime protected/cache)
 
 # Files that need to remain the same between deploys
 set :shared_files,      %w()
@@ -56,7 +56,6 @@ namespace :deploy do
   desc "Customize the finalize_update task to work with yii."
   task :finalize_update, :except => { :no_release => true } do
     run "chmod -R g+w #{latest_release}" if fetch(:group_writable, true)
-    run "mkdir -p #{latest_release}/cache"
 
     # Share common files & folders
     share_childs
