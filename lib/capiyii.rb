@@ -44,7 +44,7 @@ namespace :deploy do
     if shared_children
       shared_children.each do |link|
         run "#{try_sudo} mkdir -p #{shared_path}/#{link}"
-        run "#{try_sudo} if [ -d #{release_path}/#{link} ] ; then rm -rf #{release_path}/#{link}; fi"
+        run "#{try_sudo} sh -c 'if [ -d #{release_path}/#{link} ] ; then rm -rf #{release_path}/#{link}; fi'"
         run "#{try_sudo} ln -nfs #{shared_path}/#{link} #{release_path}/#{link}"
       end
     end
