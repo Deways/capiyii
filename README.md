@@ -48,6 +48,7 @@ Read the [capiyii documentation](http://deways.github.com/capiyii)
 ## Contributors ##
 
 * Mlanawo Mbechezi (owner): [http://github.com/Shine-neko](http://github.com/Shine-neko)
+* Evgeny Liskovets        : [http://github.com/eugeneliskovets](http://github.com/eugeneliskovets)
 
 
 ## License ##

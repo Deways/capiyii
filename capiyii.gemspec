@@ -38,10 +38,12 @@ Gem::Specification.new do |spec|
     "test/test_capiyii.rb"
   ]
 
-  spec.add_dependency 'capistrano', ">= 2.13.5","< 2.15"
+  spec.add_dependency 'capistrano', ">= 2.13.5","< 2.16.0"
   spec.add_dependency 'capistrano-ext', ">= 1.2.1"
   spec.add_dependency 'shoulda', ">= 0"
   spec.add_dependency 'colored', ">= 1.2.0"
   spec.add_dependency 'capistrano-maintenance', '0.0.3'
+  spec.add_dependency 'ruby-progressbar', '1.0.2'
+
 end
 
